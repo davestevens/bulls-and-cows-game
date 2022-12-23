@@ -1,8 +1,4 @@
-interface IGuessResult {
-  letter: string;
-  correctPosition: boolean;
-  correctLetter: boolean;
-}
+import type { IGuessResult } from './types';
 
 const findIndexOfLetter = (input: string[], letter: string): number[] => {
   let count = 0;
