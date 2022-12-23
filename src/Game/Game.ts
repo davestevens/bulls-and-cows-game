@@ -1,5 +1,6 @@
 import Guess from './Guess';
 import getRandomWord from './getRandomWord';
+import validateWord from './validateWord';
 
 const GUESS_COUNT = 5;
 const WORD_LENGTH = 5;
@@ -40,13 +41,17 @@ class Game {
   }
 
   public makeGuess(input: string): boolean {
+    const uppercaseInput = input.toLocaleUpperCase();
     if (!this.isInProgess) {
       throw new Error('Trying to guess when game is not in progress');
     }
-    if (input.length !== WORD_LENGTH) {
+    if (uppercaseInput.length !== WORD_LENGTH) {
       throw new Error('Invalid word length');
     }
-    const guess = new Guess(input, this.currentWord);
+    if (!validateWord(uppercaseInput)) {
+      throw new Error('Not a valid word');
+    }
+    const guess = new Guess(uppercaseInput, this.currentWord);
     this.guesses.push(guess);
     if (guess.isCorrect) {
       this.state = GameState.CompleteCorrect;

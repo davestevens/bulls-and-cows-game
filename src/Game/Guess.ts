@@ -23,7 +23,7 @@ class Guess {
   private result: IGuessResult[];
 
   constructor(word: string, targetWord: string) {
-    this.word = word.toLocaleUpperCase();
+    this.word = word;
     this.validate(targetWord);
   }
 
