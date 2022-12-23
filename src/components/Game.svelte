@@ -1,10 +1,13 @@
 <script lang="ts">
-  import Current from './Current.svelte';
   import Guesses from './Guesses.svelte';
+  import { gameStore } from '../stores/gameStore';
+
+  if (!gameStore.isInProgress()) {
+    gameStore.startNewGame();
+  }
 </script>
 
 <main>
-  <Current />
   <Guesses />
 </main>
 

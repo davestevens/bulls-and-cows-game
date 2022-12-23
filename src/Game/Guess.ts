@@ -12,21 +12,25 @@ const countLetters = (
 ): number => input.filter((i) => i === letter).length;
 
 class Guess {
-  public get isCorrect(): boolean { return this.result.every((r) => r.correctPosition); }
+  public get word(): string { return this.guessedWord; }
 
-  private word: string;
+  public get result(): IGuessResult[] { return this.guessedResult; }
 
-  private result: IGuessResult[];
+  public get isCorrect(): boolean { return this.guessedResult.every((r) => r.correctPosition); }
 
-  constructor(word: string, targetWord: string) {
-    this.word = word;
+  private guessedWord: string;
+
+  private guessedResult: IGuessResult[] = [];
+
+  public perform(word: string, targetWord: string): void {
+    this.guessedWord = word;
     this.validate(targetWord);
   }
 
   private validate(targetWord: string): void {
     const targetLetters = targetWord.split('');
-    const letters = this.word.split('');
-    this.result = letters.map((letter, index) => ({
+    const letters = this.guessedWord.split('');
+    this.guessedResult = letters.map((letter, index) => ({
       letter,
       correctPosition: letter === targetLetters[index],
       correctLetter: targetLetters.indexOf(letter) > -1

@@ -1,0 +1,37 @@
+import { writable } from 'svelte/store';
+import { GAME_KEY } from '../Game/consts';
+import Game from '../Game/Game';
+import type { IGameState, IGuessResult } from '../Game/types';
+
+const game = new Game();
+
+export const createGameStore = () => {
+  const initialValue = JSON.parse(localStorage.getItem(GAME_KEY)) as IGameState;
+  if (initialValue) {
+    game.fromJson(initialValue);
+  }
+  const { update, subscribe } = writable<IGameState>(game.toJson());
+
+  subscribe((val) => {
+    localStorage.setItem(GAME_KEY, JSON.stringify(val));
+  });
+
+  return {
+    subscribe,
+    isInProgress: (): boolean => game.isInProgess,
+    startNewGame: () => {
+      game.startNew();
+      update(() => game.toJson());
+    },
+    guessWord: (word: string) => {
+      game.makeGuess(word);
+      update(() => game.toJson());
+    },
+    getGuesses: (): IGuessResult[][] => game.previousGuesses,
+    getGuessIndex: (): number => game.currentGuessIndex,
+    getGuessMaxCount: (): number => game.guessMaxCount,
+    getWordLength: (): number => game.wordLength,
+  };
+};
+
+export const gameStore = createGameStore();

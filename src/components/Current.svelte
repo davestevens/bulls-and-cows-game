@@ -1,10 +1,18 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import getLettersPressed from '../services/getLettersPressed';
+  import { gameStore } from '../stores/gameStore';
 
   const LETTER_COUNT = 5;
-  const letters: string = new Array(LETTER_COUNT).fill('');
+  const letters: string[] = new Array<string>(LETTER_COUNT).fill('');
   let index = 0;
+
+  const reset = () => {
+    for (let i = 0; i < LETTER_COUNT; i += 1) {
+      letters[i] = '';
+    }
+    index = 0;
+  };
 
   const onLetterPressed = (letter: string) => {
     if (index < LETTER_COUNT) {
@@ -20,8 +28,8 @@
 
   const onEnterPressed = () => {
     if (index === LETTER_COUNT) {
-      // Enter guess
-      console.log('guess');
+      gameStore.guessWord(letters.join(''));
+      reset();
     } else {
       console.log('not enough letters');
     }
@@ -67,5 +75,6 @@
     margin: 0 0.1rem;
     text-align: center;
     line-height: 2rem;
+    vertical-align: middle;
   }
 </style>

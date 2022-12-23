@@ -1,37 +1,19 @@
 <script lang="ts">
   import type { IGuessResult } from '../Game/types';
+  import { gameStore } from '../stores/gameStore';
 
-  const results: IGuessResult = [
-    {
-      letter: 'a',
-      correctPosition: true,
-      correctLetter: true,
-    },
-    {
-      letter: 'b',
-      correctPosition: true,
-      correctLetter: false,
-    },
-    {
-      letter: 'c',
-      correctPosition: false,
-      correctLetter: true,
-    },
-    {
-      letter: 'd',
-      correctPosition: false,
-      correctLetter: false,
-    }, {
-      letter: 'e',
-      correctPosition: false,
-      correctLetter: false,
-    },
-  ];
+  export let result: IGuessResult[];
+
+  const wordLength = gameStore.getWordLength();
 </script>
 
 <ol>
-  {#each results as result}
-    <li data-position={result.correctPosition} data-letter={result.correctLetter}>{result.letter}</li>
+  {#each result as item}
+    <li data-position={item.correctPosition} data-letter={item.correctLetter}>{item.letter}</li>
+  {:else}
+    {#each Array(wordLength) as _, i}
+      <li></li>
+    {/each}
   {/each}
 </ol>
 
@@ -50,6 +32,7 @@
     margin: 0 0.1rem;
     text-align: center;
     line-height: 2rem;
+    vertical-align: middle;
   }
 
   li[data-letter="true"] {

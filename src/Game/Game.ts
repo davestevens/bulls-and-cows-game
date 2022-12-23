@@ -1,16 +1,9 @@
-import Guess from './Guess';
+import type Guess from './Guess';
 import getRandomWord from './getRandomWord';
 import validateWord from './validateWord';
-
-const GUESS_COUNT = 5;
-const WORD_LENGTH = 5;
-
-enum GameState {
-  Unknown,
-  InProgress,
-  CompleteCorrect,
-  CompleteIncorrect,
-}
+import { GameState, IGameState, IGuessResult } from './types';
+import buildGuesses from './buildGuesses';
+import { GUESS_COUNT, WORD_LENGTH } from './consts';
 
 class Game {
   public get word(): string { return this.currentWord; }
@@ -25,18 +18,33 @@ class Game {
 
   public get guessesRemaining(): number { return GUESS_COUNT - this.guessesTaken; }
 
-  public get guessesTaken(): number { return this.guesses.length; }
+  public get guessesTaken(): number { return this.guessIndex + 1; }
+
+  public get currentGuessIndex(): number { return this.guessIndex; }
+
+  public get previousGuesses(): IGuessResult[][] {
+    return this.guesses.map((guess) => guess.result);
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  public get guessMaxCount(): number { return GUESS_COUNT; }
+
+  // eslint-disable-next-line class-methods-use-this
+  public get wordLength(): number { return WORD_LENGTH; }
 
   private currentWord: string;
 
-  private guesses: Guess[];
+  private guessIndex: number;
+
+  private guesses: Guess[] = buildGuesses(GUESS_COUNT);
 
   private state: GameState = GameState.Unknown;
 
   public startNew(): void {
     // TODO: close down current game (if there is one)
     this.currentWord = getRandomWord();
-    this.guesses = [];
+    this.guessIndex = 0;
+    this.guesses = buildGuesses(GUESS_COUNT);
     this.state = GameState.InProgress;
   }
 
@@ -51,14 +59,36 @@ class Game {
     if (!validateWord(uppercaseInput)) {
       throw new Error('Not a valid word');
     }
-    const guess = new Guess(uppercaseInput, this.currentWord);
-    this.guesses.push(guess);
+    const guess = this.guesses[this.guessIndex];
+    guess.perform(uppercaseInput, this.currentWord);
     if (guess.isCorrect) {
       this.state = GameState.CompleteCorrect;
-    } else if (this.guesses.length >= GUESS_COUNT) {
+    } else if (this.guessesTaken >= GUESS_COUNT) {
       this.state = GameState.CompleteIncorrect;
     }
+    this.guessIndex += 1;
     return this.isComplete;
+  }
+
+  public toJson(): IGameState {
+    return {
+      word: this.currentWord,
+      state: this.state,
+      guesses: this.guesses.map((guess) => guess.word),
+      guessIndex: this.guessIndex,
+    };
+  }
+
+  public fromJson(state: IGameState): void {
+    this.currentWord = state.word;
+    this.state = state.state;
+    this.guessIndex = state.guessIndex;
+    this.guesses = buildGuesses(GUESS_COUNT);
+    state.guesses.forEach((guess, index) => {
+      if (guess) {
+        this.guesses[index].perform(guess, this.currentWord);
+      }
+    });
   }
 }
 
