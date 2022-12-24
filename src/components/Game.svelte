@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onDestroy } from 'svelte';
+  import StateButton from './StateButton.svelte';
   import Guesses from './Guesses.svelte';
   import Keyboard from './Keyboard.svelte';
   import { gameStore } from '../stores/gameStore';
@@ -9,10 +10,6 @@
   let guessIndex: number;
   let isInProgress: boolean;
   let keyResults: IKeyResults;
-
-  if (!gameStore.isInProgress()) {
-    gameStore.startNewGame();
-  }
 
   const unsubscribe = gameStore.subscribe(() => {
     guessResults = gameStore.getGuesses();
@@ -26,7 +23,10 @@
 
 {#key guessIndex}
   <main>
-    <Guesses {guessResults} {guessIndex} {isInProgress} />
+    <div class="container">
+      <StateButton {isInProgress} />
+      <Guesses {guessResults} {guessIndex} {isInProgress} />
+    </div>
     <Keyboard {keyResults} />
   </main>
 {/key}
@@ -38,5 +38,9 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
+  }
+
+  .container {
+    position: relative;
   }
 </style>
