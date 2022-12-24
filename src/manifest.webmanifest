@@ -1,0 +1,28 @@
+{
+  "background_color": "#6200ee",
+  "theme_color": "#6200ee",
+  "description": "Bulls & Cows game",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "img/favicon.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "img/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "img/favicon.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "name": "Bulls & Cows",
+  "short_name": "B&C",
+  "start_url": ".",
+  "prefer_related_applications": true
+}
