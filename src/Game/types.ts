@@ -4,6 +4,11 @@ export interface IGuessResult {
   correctLetter: boolean;
 }
 
+export interface IKeyResults {
+  correctPositions: string[];
+  correctLetters: string[];
+}
+
 export enum GameState {
   Unknown,
   InProgress,

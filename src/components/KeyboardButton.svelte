@@ -1,11 +1,9 @@
 <script lang="ts">
-  export interface IButtonProps {
-    label: string;
-    charCode?: number;
-    special?: boolean;
-  }
+  import type { IKeyboardButtonProps } from './types';
 
-  export let button: IButtonProps;
+  export let button: IKeyboardButtonProps;
+  export let correctPosition: boolean;
+  export let correctLetter: boolean;
 
   const handleClick = () => {
     const keyCode = button.charCode ?? button.label.charCodeAt(0);
@@ -13,7 +11,7 @@
   };
 </script>
 
-<button on:click={handleClick} class:special={button.special}>
+<button on:click={handleClick} class:special={button.special} class:position={correctPosition} class:letter={correctLetter}>
   {button.label}
 </button>
 
@@ -32,5 +30,14 @@
 
   button.special {
     width: 2.5rem;
+  }
+
+  button.letter {
+    background-color: orange;
+  }
+
+  button.position {
+    background-color: green;
+    color: #ffe;
   }
 </style>

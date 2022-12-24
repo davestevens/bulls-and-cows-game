@@ -1,7 +1,9 @@
 import type Guess from './Guess';
 import getRandomWord from './getRandomWord';
 import validateWord from './validateWord';
-import { GameState, IGameState, IGuessResult } from './types';
+import {
+  GameState, IGameState, IGuessResult, IKeyResults,
+} from './types';
 import buildGuesses from './buildGuesses';
 import { GUESS_COUNT, WORD_LENGTH } from './consts';
 
@@ -24,6 +26,10 @@ class Game {
 
   public get previousGuesses(): IGuessResult[][] {
     return this.guesses.map((guess) => guess.result);
+  }
+
+  public get keyResults(): IKeyResults {
+    return this.calculateKeyResults();
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -89,6 +95,25 @@ class Game {
         this.guesses[index].perform(guess, this.currentWord);
       }
     });
+  }
+
+  private calculateKeyResults(): IKeyResults {
+    const correctPositions = new Set<string>();
+    const correctLetters = new Set<string>();
+    this.guesses.forEach((guess) => {
+      guess.result.forEach((result) => {
+        if (result.correctPosition) {
+          correctPositions.add(result.letter);
+        }
+        if (result.correctLetter) {
+          correctLetters.add(result.letter);
+        }
+      });
+    });
+    return {
+      correctPositions: [...correctPositions],
+      correctLetters: [...correctLetters],
+    };
   }
 }
 

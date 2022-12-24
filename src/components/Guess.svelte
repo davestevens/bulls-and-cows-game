@@ -41,5 +41,6 @@
 
   li[data-position="true"] {
     background-color: green;
+    color: #ffe;
   }
 </style>
