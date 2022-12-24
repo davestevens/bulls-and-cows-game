@@ -23,7 +23,7 @@
   };
 
   const onBackspacePressed = () => {
-    index -= 1;
+    index = Math.max(0, index - 1);
     letters[index] = '';
   };
 
