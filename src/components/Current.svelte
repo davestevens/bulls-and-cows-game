@@ -3,7 +3,7 @@
   import getLettersPressed from '../services/getLettersPressed';
   import { gameStore } from '../stores/gameStore';
 
-  const LETTER_COUNT = 5;
+  const LETTER_COUNT = gameStore.getWordLength();
   const letters: string[] = new Array<string>(LETTER_COUNT).fill('');
   let index = 0;
 
@@ -36,9 +36,9 @@
   };
 
   const keyPressListener = (event: KeyboardEvent) => {
-    if (event.key === 'Enter') {
+    if (event.keyCode === 13) {
       onEnterPressed();
-    } else if (event.key === 'Backspace') {
+    } else if (event.keyCode === 8) {
       onBackspacePressed();
     }
   };
@@ -65,6 +65,24 @@
     list-style: none;
     margin: 0.1rem 0;
     padding: 0;
+    position: relative;
+  }
+
+  ol:before {
+    content: '';
+    display: block;
+    width: 0.5rem;
+    height: 0.5rem;
+    position: absolute;
+    top: 50%;
+    left: -1rem;
+    transform: translateY(-50%);
+
+    border: solid black;
+    border-width: 0 0.15rem 0.15rem 0;
+    display: inline-block;
+    transform: rotate(-45deg);
+    transform-origin: 0 0;
   }
 
   li {

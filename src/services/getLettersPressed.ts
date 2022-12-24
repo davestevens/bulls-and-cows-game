@@ -9,9 +9,9 @@ const buildKeyPressListener = (callback: GetLettersPressedCallback) => (event: K
 
 const getLettersPressed = (callback: GetLettersPressedCallback): () => void => {
   const keyPressListener = buildKeyPressListener(callback);
-  window.addEventListener('keypress', keyPressListener);
+  window.addEventListener('keydown', keyPressListener);
   return () => {
-    window.removeEventListener('keypress', keyPressListener);
+    window.removeEventListener('keydown', keyPressListener);
   };
 };
 

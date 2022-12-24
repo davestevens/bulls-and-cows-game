@@ -63,7 +63,7 @@ class Game {
     guess.perform(uppercaseInput, this.currentWord);
     if (guess.isCorrect) {
       this.state = GameState.CompleteCorrect;
-    } else if (this.guessesTaken >= GUESS_COUNT) {
+    } if (this.guessesTaken >= GUESS_COUNT) {
       this.state = GameState.CompleteIncorrect;
     }
     this.guessIndex += 1;

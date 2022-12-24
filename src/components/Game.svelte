@@ -1,5 +1,6 @@
 <script lang="ts">
   import Guesses from './Guesses.svelte';
+  import Keyboard from './Keyboard.svelte';
   import { gameStore } from '../stores/gameStore';
 
   if (!gameStore.isInProgress()) {
@@ -9,6 +10,7 @@
 
 <main>
   <Guesses />
+  <Keyboard />
 </main>
 
 <style>
