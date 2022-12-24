@@ -26,6 +26,8 @@
     border-radius: 0.3rem;
     background-color: transparent;
     margin: 0 0.1rem;
+    font-size: 1rem;
+    font-family: inherit;
   }
 
   button.special {

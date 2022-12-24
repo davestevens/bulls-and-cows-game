@@ -29,5 +29,7 @@
     border: 0.1rem solid grey;
     border-radius: 0.3rem;
     background-color: transparent;
+    font-size: 1em;
+    font-family: inherit;
   }
 </style>
