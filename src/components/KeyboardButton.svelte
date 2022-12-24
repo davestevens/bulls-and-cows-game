@@ -21,11 +21,11 @@
     align-items: center;
     justify-content: center;
     width: 1.5rem;
-    height: 2rem;
+    height: 2.5rem;
     border: 0.1rem solid grey;
     border-radius: 0.3rem;
     background-color: transparent;
-    margin: 0 0.1rem;
+    margin: 0 0.15rem;
     font-size: 1rem;
     font-family: inherit;
   }

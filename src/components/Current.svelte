@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import { toast } from '@zerodevx/svelte-toast';
   import getLettersPressed from '../services/getLettersPressed';
   import { gameStore } from '../stores/gameStore';
 
@@ -27,11 +28,11 @@
   };
 
   const onEnterPressed = () => {
-    if (index === LETTER_COUNT) {
+    try {
       gameStore.guessWord(letters.join(''));
       reset();
-    } else {
-      console.log('not enough letters');
+    } catch (error) {
+      toast.push((error as Error).message);
     }
   };
 
