@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onDestroy } from 'svelte';
+  import { toast } from '@zerodevx/svelte-toast';
   import StateButton from './StateButton.svelte';
   import Guesses from './Guesses.svelte';
   import Keyboard from './Keyboard.svelte';
@@ -16,6 +17,10 @@
     guessIndex = gameStore.getGuessIndex();
     isInProgress = gameStore.isInProgress();
     keyResults = gameStore.getKeyResults();
+
+    if (gameStore.isIncorrect()) {
+      toast.push(`The word was "${gameStore.getWord()}"`);
+    }
   });
 
   onDestroy(unsubscribe);

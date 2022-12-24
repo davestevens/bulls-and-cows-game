@@ -19,6 +19,7 @@ export const createGameStore = () => {
   return {
     subscribe,
     isInProgress: (): boolean => game.isInProgess,
+    isIncorrect: (): boolean => game.isIncorrect,
     startNewGame: () => {
       game.startNew();
       update(() => game.toJson());
@@ -27,6 +28,7 @@ export const createGameStore = () => {
       game.makeGuess(word);
       update(() => game.toJson());
     },
+    getWord: (): string => game.word,
     getGuesses: (): IGuessResult[][] => game.previousGuesses,
     getGuessIndex: (): number => game.currentGuessIndex,
     getGuessMaxCount: (): number => game.guessMaxCount,
