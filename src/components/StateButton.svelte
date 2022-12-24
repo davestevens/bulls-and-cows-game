@@ -10,9 +10,9 @@
 
 <button on:click={handleReset}>
   {#if isInProgress}
-    Reset
+    🔄
   {:else}
-    New Game
+    🆕
   {/if}
 </button>
 
@@ -24,12 +24,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 3rem;
-    height: 3rem;
-    border: 0.1rem solid grey;
-    border-radius: 0.3rem;
+    width: 2rem;
+    height: 2rem;
+    border: none;
     background-color: transparent;
-    font-size: 1em;
+    font-size: 2em;
     font-family: inherit;
   }
 </style>

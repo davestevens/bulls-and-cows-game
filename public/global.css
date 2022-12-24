@@ -4,6 +4,9 @@ html, body {
   user-select: none;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 html {
   font-size: calc(18px + 0.390625vw);
+  font-family: 'Roboto', sans-serif;
 }
