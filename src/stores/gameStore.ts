@@ -9,6 +9,8 @@ export const createGameStore = () => {
   const initialValue = JSON.parse(localStorage.getItem(GAME_KEY)) as IGameState;
   if (initialValue) {
     game.fromJson(initialValue);
+  } else {
+    game.startNew();
   }
   const { update, subscribe } = writable<IGameState>(game.toJson());
 
