@@ -100,19 +100,22 @@ class Game {
   private calculateKeyResults(): IKeyResults {
     const correctPositions = new Set<string>();
     const correctLetters = new Set<string>();
+    const incorrectLetters = new Set<string>();
     this.guesses.forEach((guess) => {
       guess.result.forEach((result) => {
         if (result.correctPosition) {
           correctPositions.add(result.letter);
-        }
-        if (result.correctLetter) {
+        } else if (result.correctLetter) {
           correctLetters.add(result.letter);
+        } else {
+          incorrectLetters.add(result.letter);
         }
       });
     });
     return {
       correctPositions: [...correctPositions],
       correctLetters: [...correctLetters],
+      incorrectLetters: [...incorrectLetters],
     };
   }
 }

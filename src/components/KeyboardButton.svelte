@@ -4,6 +4,7 @@
   export let button: IKeyboardButtonProps;
   export let correctPosition: boolean;
   export let correctLetter: boolean;
+  export let incorrectLetter: boolean;
 
   const handleClick = () => {
     const keyCode = button.charCode ?? button.label.charCodeAt(0);
@@ -11,7 +12,7 @@
   };
 </script>
 
-<button on:click={handleClick} class:special={button.special} class:position={correctPosition} class:letter={correctLetter}>
+<button on:click={handleClick} class:special={button.special} class:position={correctPosition} class:letter={correctLetter} class:incorrect={incorrectLetter}>
   {button.label}
 </button>
 
@@ -32,6 +33,10 @@
 
   button.special {
     width: 2.5rem;
+  }
+
+  button.incorrect {
+    background-color: darkgray;
   }
 
   button.letter {

@@ -7,6 +7,7 @@ export interface IGuessResult {
 export interface IKeyResults {
   correctPositions: string[];
   correctLetters: string[];
+  incorrectLetters: string[];
 }
 
 export enum GameState {

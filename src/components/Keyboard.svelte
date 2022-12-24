@@ -5,7 +5,7 @@
 
   export let keyResults: IKeyResults;
 
-  const { correctPositions, correctLetters } = keyResults;
+  const { correctPositions, correctLetters, incorrectLetters } = keyResults;
 
   const rows: IKeyboardButtonProps[][] = [
     [{ label: 'Q' }, { label: 'W' }, { label: 'E' }, { label: 'R' }, { label: 'T' }, { label: 'Y' }, { label: 'U' }, { label: 'I' }, { label: 'O' }, { label: 'P' }],
@@ -20,6 +20,10 @@
   const checkLetter = (
     letter: IKeyboardButtonProps,
   ): boolean => correctLetters.indexOf(letter.label) > -1;
+
+  const checkIncorrect = (
+    letter: IKeyboardButtonProps,
+  ): boolean => incorrectLetters.indexOf(letter.label) > -1;
 </script>
 
 {#key keyResults}
@@ -27,7 +31,7 @@
     {#each rows as row, index (index)}
       <div class="row">
         {#each row as letter (letter)}
-          <KeyboardButton button={letter} correctPosition={checkPosition(letter)} correctLetter={checkLetter(letter)}/>
+          <KeyboardButton button={letter} correctPosition={checkPosition(letter)} correctLetter={checkLetter(letter)} incorrectLetter={checkIncorrect(letter)}/>
         {/each}
       </div>
     {/each}
