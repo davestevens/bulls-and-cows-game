@@ -46,7 +46,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, "._toastItem.svelte-l65oht{width:var(--
 
 /***/ }),
 
-/***/ 522:
+/***/ 960:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -112,7 +112,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, "ol.svelte-k07vs5{list-style:none;margi
 
 /***/ }),
 
-/***/ 142:
+/***/ 107:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -134,7 +134,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, "section.svelte-119xhbg{margin-bottom:1
 
 /***/ }),
 
-/***/ 653:
+/***/ 295:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -156,7 +156,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".row.svelte-9qrp3y{margin:0.2rem 0;pad
 
 /***/ }),
 
-/***/ 335:
+/***/ 374:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -5009,7 +5009,7 @@ class Guess_svelte_Guess extends SvelteComponent {
 ;// CONCATENATED MODULE: ./src/services/getLettersPressed.ts
 const buildKeyPressListener = (callback) => (event) => {
     const { keyCode } = event;
-    if ((keyCode >= 97 && keyCode <= 122) || (keyCode >= 65 && keyCode <= 90)) {
+    if ((keyCode >= 65 && keyCode <= 90)) {
         callback(event.key.toLocaleUpperCase());
     }
 };
@@ -5022,9 +5022,9 @@ const getLettersPressed = (callback) => {
 };
 /* harmony default export */ const services_getLettersPressed = (getLettersPressed);
 
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/Current.svelte.4.css!./src/components/Current.svelte
-var Current_svelte = __webpack_require__(522);
-;// CONCATENATED MODULE: ./src/components/Current.svelte.4.css!=!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/Current.svelte.4.css!./src/components/Current.svelte
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/Current.svelte.6.css!./src/components/Current.svelte
+var Current_svelte = __webpack_require__(960);
+;// CONCATENATED MODULE: ./src/components/Current.svelte.6.css!=!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/Current.svelte.6.css!./src/components/Current.svelte
 
       
       
@@ -5286,9 +5286,9 @@ class Current extends SvelteComponent {
 
 /* harmony default export */ const src_components_Current_svelte = (Current);
 
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/Guesses.svelte.2.css!./src/components/Guesses.svelte
-var Guesses_svelte = __webpack_require__(142);
-;// CONCATENATED MODULE: ./src/components/Guesses.svelte.2.css!=!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/Guesses.svelte.2.css!./src/components/Guesses.svelte
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/Guesses.svelte.3.css!./src/components/Guesses.svelte
+var Guesses_svelte = __webpack_require__(107);
+;// CONCATENATED MODULE: ./src/components/Guesses.svelte.3.css!=!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/Guesses.svelte.3.css!./src/components/Guesses.svelte
 
       
       
@@ -5579,9 +5579,9 @@ class Guesses extends SvelteComponent {
 
 /* harmony default export */ const src_components_Guesses_svelte = (Guesses);
 
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/KeyboardButton.svelte.6.css!./src/components/KeyboardButton.svelte
-var KeyboardButton_svelte = __webpack_require__(335);
-;// CONCATENATED MODULE: ./src/components/KeyboardButton.svelte.6.css!=!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/KeyboardButton.svelte.6.css!./src/components/KeyboardButton.svelte
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/KeyboardButton.svelte.4.css!./src/components/KeyboardButton.svelte
+var KeyboardButton_svelte = __webpack_require__(374);
+;// CONCATENATED MODULE: ./src/components/KeyboardButton.svelte.4.css!=!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/KeyboardButton.svelte.4.css!./src/components/KeyboardButton.svelte
 
       
       
@@ -5710,9 +5710,9 @@ class KeyboardButton extends SvelteComponent {
 
 /* harmony default export */ const src_components_KeyboardButton_svelte = (KeyboardButton);
 
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/Keyboard.svelte.3.css!./src/components/Keyboard.svelte
-var Keyboard_svelte = __webpack_require__(653);
-;// CONCATENATED MODULE: ./src/components/Keyboard.svelte.3.css!=!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/Keyboard.svelte.3.css!./src/components/Keyboard.svelte
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/Keyboard.svelte.2.css!./src/components/Keyboard.svelte
+var Keyboard_svelte = __webpack_require__(295);
+;// CONCATENATED MODULE: ./src/components/Keyboard.svelte.2.css!=!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/Keyboard.svelte.2.css!./src/components/Keyboard.svelte
 
       
       
