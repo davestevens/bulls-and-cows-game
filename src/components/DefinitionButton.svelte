@@ -18,9 +18,6 @@
 
 <style>
   button {
-    position: absolute;
-    top: 0;
-    left: -1.5rem;
     display: inline-block;
     width: 1.5rem;
     height: 2.2rem;

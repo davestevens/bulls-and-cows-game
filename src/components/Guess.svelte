@@ -10,7 +10,9 @@
 
 <ol>
   {#if result.length}
-    <DefinitionButton word={result.map((i) => i.letter).join('')} />
+    <div class="definition-button">
+      <DefinitionButton word={result.map((i) => i.letter).join('')} />
+    </div>
   {/if}
   {#each result as item}
     <li data-position={item.correctPosition} data-letter={item.correctLetter}>{item.letter}</li>
@@ -47,5 +49,11 @@
   li[data-position="true"] {
     background-color: green;
     color: #ffe;
+  }
+
+  .definition-button {
+    position: absolute;
+    top: 0;
+    left: -1.5rem;
   }
 </style>

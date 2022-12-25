@@ -1,11 +1,14 @@
 <script lang="ts">
-  import { onDestroy } from 'svelte';
-  import { toast } from '@zerodevx/svelte-toast';
+  import { onDestroy, getContext } from 'svelte';
   import StateButton from './StateButton.svelte';
   import Guesses from './Guesses.svelte';
   import Keyboard from './Keyboard.svelte';
+  import GameOverModal from './GameOverModal.svelte';
   import { gameStore } from '../stores/gameStore';
   import type { IGuessResult, IKeyResults } from '../Game/types';
+  import type { ISimpleModalContext } from './types';
+
+  const { open } = getContext<ISimpleModalContext>('simple-modal');
 
   let guessResults: IGuessResult[][];
   let guessIndex: number;
@@ -18,8 +21,10 @@
     isInProgress = gameStore.isInProgress();
     keyResults = gameStore.getKeyResults();
 
-    if (gameStore.isIncorrect()) {
-      toast.push(`The word was "${gameStore.getWord()}"`);
+    if (!isInProgress) {
+      setTimeout(() => {
+        open(GameOverModal);
+      }, 0);
     }
   });
 
