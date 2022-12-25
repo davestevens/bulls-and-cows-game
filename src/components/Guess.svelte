@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { IGuessResult } from '../Game/types';
   import { gameStore } from '../stores/gameStore';
+  import DefinitionButton from './DefinitionButton.svelte';
 
   export let result: IGuessResult[];
 
@@ -8,6 +9,9 @@
 </script>
 
 <ol>
+  {#if result.length}
+    <DefinitionButton word={result.map((i) => i.letter).join('')} />
+  {/if}
   {#each result as item}
     <li data-position={item.correctPosition} data-letter={item.correctLetter}>{item.letter}</li>
   {:else}
@@ -22,6 +26,7 @@
     list-style: none;
     margin: 0.1rem 0;
     padding: 0;
+    position: relative;
   }
 
   li {
