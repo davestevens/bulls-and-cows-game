@@ -56,8 +56,12 @@
 </script>
 
 <ol>
-  {#each letters as letter}
-    <li>{letter}</li>
+  {#each letters as letter, index}
+    {#if index === 0}
+      <li on:click={reset} on:keydown={reset}>{letter}</li>
+    {:else}
+      <li>{letter}</li>
+    {/if}
   {/each}
 </ol>
 
