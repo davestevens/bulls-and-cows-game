@@ -4,7 +4,10 @@
   export let isInProgress: boolean;
 
   const handleReset = () => {
-    gameStore.startNewGame();
+    // eslint-disable-next-line no-alert
+    if (!isInProgress || (isInProgress && window.confirm('Reset the game?'))) {
+      gameStore.startNewGame();
+    }
   };
 </script>
 
