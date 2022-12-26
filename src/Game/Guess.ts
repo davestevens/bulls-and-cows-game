@@ -30,11 +30,12 @@ class Guess {
   private validate(targetWord: string): void {
     const targetLetters = targetWord.split('');
     const letters = this.guessedWord.split('');
+    const remainingLetters = targetLetters.filter((letter, index) => letter !== letters[index]);
     this.guessedResult = letters.map((letter, index) => ({
       letter,
       correctPosition: letter === targetLetters[index],
-      correctLetter: targetLetters.indexOf(letter) > -1
-        && findIndexOfLetter(letters, letter)[index] < countLetters(targetLetters, letter),
+      correctLetter: remainingLetters.indexOf(letter) > -1
+        && findIndexOfLetter(letters, letter)[index] < countLetters(remainingLetters, letter),
     }));
   }
 }
