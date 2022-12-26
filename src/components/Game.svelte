@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onDestroy, getContext } from 'svelte';
   import StateButton from './StateButton.svelte';
+  import ConcedeButton from './ConcedeButton.svelte';
   import Guesses from './Guesses.svelte';
   import Keyboard from './Keyboard.svelte';
   import GameOverModal from './GameOverModal.svelte';
@@ -35,6 +36,7 @@
   <main>
     <div class="container">
       <StateButton {isInProgress} />
+      <ConcedeButton {isInProgress} />
       <Guesses {guessResults} {guessIndex} {isInProgress} />
     </div>
     <Keyboard {keyResults} />

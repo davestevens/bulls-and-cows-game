@@ -76,6 +76,10 @@ class Game {
     return this.isComplete;
   }
 
+  public concede(): void {
+    this.state = GameState.CompleteIncorrect;
+  }
+
   public toJson(): IGameState {
     return {
       word: this.currentWord,

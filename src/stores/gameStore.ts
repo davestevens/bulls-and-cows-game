@@ -30,6 +30,10 @@ export const createGameStore = () => {
       game.makeGuess(word);
       update(() => game.toJson());
     },
+    concede: () => {
+      game.concede();
+      update(() => game.toJson());
+    },
     getWord: (): string => game.word,
     getGuesses: (): IGuessResult[][] => game.previousGuesses,
     getGuessIndex: (): number => game.currentGuessIndex,
