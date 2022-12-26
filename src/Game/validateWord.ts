@@ -1,5 +1,5 @@
-import words from '../data/words';
+import { possible } from '../data/words';
 
-const validateWord = (word: string): boolean => words.includes(word);
+const validateWord = (word: string): boolean => possible.includes(word);
 
 export default validateWord;

@@ -1,3 +1,6 @@
-import wordList from './wordList';
+import possibleWords from './possibleWords';
+import selectionWords from './selectionWords';
 
-export default wordList.map((word) => word.toLocaleUpperCase());
+export const possible = possibleWords.map((word) => word.toLocaleUpperCase());
+
+export const selection = selectionWords.map((word) => word.toLocaleUpperCase());
