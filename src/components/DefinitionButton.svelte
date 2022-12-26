@@ -1,5 +1,7 @@
 <script lang="ts">
   import { getContext } from 'svelte';
+  import Fa from 'svelte-fa';
+  import { faQuestionCircle } from '@fortawesome/free-regular-svg-icons';
   import DefinitionModal from './DefinitionModal.svelte';
   import type { ISimpleModalContext } from './types';
 
@@ -13,7 +15,7 @@
 </script>
 
 <button on:click={handleClick}>
-  🔍
+  <Fa icon={faQuestionCircle} />
 </button>
 
 <style>

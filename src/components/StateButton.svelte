@@ -1,4 +1,6 @@
 <script lang="ts">
+  import Fa from 'svelte-fa';
+  import { faSquarePlus } from '@fortawesome/free-regular-svg-icons';
   import { gameStore } from '../stores/gameStore';
 
   export let isInProgress: boolean;
@@ -12,11 +14,7 @@
 </script>
 
 <button on:click={handleReset}>
-  {#if isInProgress}
-    🔄
-  {:else}
-    🆕
-  {/if}
+  <Fa icon={faSquarePlus} />
 </button>
 
 <style>
@@ -31,7 +29,7 @@
     height: 2rem;
     border: none;
     background-color: transparent;
-    font-size: 2em;
+    font-size: 1em;
     font-family: inherit;
   }
 </style>

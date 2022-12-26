@@ -1,6 +1,8 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { toast } from '@zerodevx/svelte-toast';
+  import Fa from 'svelte-fa';
+  import { faCircleRight } from '@fortawesome/free-regular-svg-icons';
   import getLettersPressed from '../services/getLettersPressed';
   import { gameStore } from '../stores/gameStore';
 
@@ -56,6 +58,9 @@
 </script>
 
 <ol>
+  <div class="indicator">
+    <Fa icon={faCircleRight} />
+  </div>
   {#each letters as letter, index}
     {#if index === 0}
       <li on:click={reset} on:keydown={reset}>{letter}</li>
@@ -73,21 +78,22 @@
     position: relative;
   }
 
-  ol:before {
-    content: '';
-    display: block;
-    width: 0.5rem;
-    height: 0.5rem;
+  .indicator {
     position: absolute;
-    top: 50%;
-    left: -1rem;
-    transform: translateY(-50%);
+    top: 0;
+    left: -1.5rem;
 
-    border: solid black;
-    border-width: 0 0.15rem 0.15rem 0;
-    display: inline-block;
-    transform: rotate(-45deg);
-    transform-origin: 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 2.2rem;
+    border: none;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    font-size: 0.75rem;
+    font-family: inherit;
   }
 
   li {

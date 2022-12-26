@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Fa from 'svelte-fa';
   import type { IKeyboardButtonProps } from './types';
 
   export let button: IKeyboardButtonProps;
@@ -13,7 +14,11 @@
 </script>
 
 <button on:click={handleClick} class:special={button.special} class:position={correctPosition} class:letter={correctLetter} class:incorrect={incorrectLetter}>
-  {button.label}
+  {#if button.icon}
+    <Fa icon={button.icon} />
+  {:else}
+    {button.label}
+  {/if}
 </button>
 
 <style>
