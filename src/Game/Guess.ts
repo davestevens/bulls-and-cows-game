@@ -29,13 +29,14 @@ class Guess {
 
   private validate(targetWord: string): void {
     const targetLetters = targetWord.split('');
-    const letters = this.guessedWord.split('');
-    const remainingLetters = targetLetters.filter((letter, index) => letter !== letters[index]);
-    this.guessedResult = letters.map((letter, index) => ({
-      letter,
-      correctPosition: letter === targetLetters[index],
-      correctLetter: remainingLetters.indexOf(letter) > -1
-        && findIndexOfLetter(letters, letter)[index] < countLetters(remainingLetters, letter),
+    const guessedLetter = this.guessedWord.split('');
+    const remainingLetters = targetLetters.filter((l, i) => l !== guessedLetter[i]);
+    const incorrectLetters = guessedLetter.map((l, i) => (l === targetLetters[i] ? null : l));
+    this.guessedResult = guessedLetter.map((l, i) => ({
+      letter: l,
+      correctPosition: l === targetLetters[i],
+      correctLetter: remainingLetters.indexOf(l) > -1
+        && findIndexOfLetter(incorrectLetters, l)[i] < countLetters(remainingLetters, l),
     }));
   }
 }
