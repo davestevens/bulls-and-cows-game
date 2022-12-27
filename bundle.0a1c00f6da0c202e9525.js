@@ -68,7 +68,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".svelte-n7cvum{box-sizing:border-box}.
 
 /***/ }),
 
-/***/ 558:
+/***/ 118:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -90,7 +90,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, "button.svelte-an51mu{position:absolute
 
 /***/ }),
 
-/***/ 637:
+/***/ 331:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -112,7 +112,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, "ol.svelte-1r3t6ui{list-style:none;marg
 
 /***/ }),
 
-/***/ 314:
+/***/ 806:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -178,7 +178,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, "button.svelte-gqumlq{display:flex;alig
 
 /***/ }),
 
-/***/ 139:
+/***/ 92:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -200,7 +200,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, "ol.svelte-1286s7{list-style:none;margi
 
 /***/ }),
 
-/***/ 996:
+/***/ 142:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -222,7 +222,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, "section.svelte-119xhbg{margin-bottom:1
 
 /***/ }),
 
-/***/ 295:
+/***/ 402:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -244,7 +244,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".row.svelte-9qrp3y{margin:0.2rem 0;pad
 
 /***/ }),
 
-/***/ 335:
+/***/ 338:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -266,7 +266,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, "button.svelte-pev6px{display:flex;alig
 
 /***/ }),
 
-/***/ 375:
+/***/ 27:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -7199,13 +7199,14 @@ class Guess {
     }
     validate(targetWord) {
         const targetLetters = targetWord.split('');
-        const letters = this.guessedWord.split('');
-        const remainingLetters = targetLetters.filter((letter, index) => letter !== letters[index]);
-        this.guessedResult = letters.map((letter, index) => ({
-            letter,
-            correctPosition: letter === targetLetters[index],
-            correctLetter: remainingLetters.indexOf(letter) > -1
-                && findIndexOfLetter(letters, letter)[index] < countLetters(remainingLetters, letter),
+        const guessedLetter = this.guessedWord.split('');
+        const remainingLetters = targetLetters.filter((l, i) => l !== guessedLetter[i]);
+        const incorrectLetters = guessedLetter.map((l, i) => (l === targetLetters[i] ? null : l));
+        this.guessedResult = guessedLetter.map((l, i) => ({
+            letter: l,
+            correctPosition: l === targetLetters[i],
+            correctLetter: remainingLetters.indexOf(l) > -1
+                && findIndexOfLetter(incorrectLetters, l)[i] < countLetters(remainingLetters, l),
         }));
     }
 }
@@ -7371,9 +7372,9 @@ const createGameStore = () => {
 };
 const gameStore = createGameStore();
 
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/StateButton.svelte.4.css!./src/components/StateButton.svelte
-var StateButton_svelte = __webpack_require__(375);
-;// CONCATENATED MODULE: ./src/components/StateButton.svelte.4.css!=!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/StateButton.svelte.4.css!./src/components/StateButton.svelte
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/StateButton.svelte.1.css!./src/components/StateButton.svelte
+var StateButton_svelte = __webpack_require__(27);
+;// CONCATENATED MODULE: ./src/components/StateButton.svelte.1.css!=!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/StateButton.svelte.1.css!./src/components/StateButton.svelte
 
       
       
@@ -7479,9 +7480,9 @@ class StateButton extends SvelteComponent {
 
 /* harmony default export */ const src_components_StateButton_svelte = (StateButton);
 
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/ConcedeButton.svelte.1.css!./src/components/ConcedeButton.svelte
-var ConcedeButton_svelte = __webpack_require__(558);
-;// CONCATENATED MODULE: ./src/components/ConcedeButton.svelte.1.css!=!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/ConcedeButton.svelte.1.css!./src/components/ConcedeButton.svelte
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/ConcedeButton.svelte.4.css!./src/components/ConcedeButton.svelte
+var ConcedeButton_svelte = __webpack_require__(118);
+;// CONCATENATED MODULE: ./src/components/ConcedeButton.svelte.4.css!=!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/ConcedeButton.svelte.4.css!./src/components/ConcedeButton.svelte
 
       
       
@@ -7758,9 +7759,9 @@ class DefinitionModal extends SvelteComponent {
 }
 
 /* harmony default export */ const DefinitionModal_svelte = (DefinitionModal);
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/DefinitionButton.svelte.9.css!./src/components/DefinitionButton.svelte
-var DefinitionButton_svelte = __webpack_require__(314);
-;// CONCATENATED MODULE: ./src/components/DefinitionButton.svelte.9.css!=!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/DefinitionButton.svelte.9.css!./src/components/DefinitionButton.svelte
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/DefinitionButton.svelte.8.css!./src/components/DefinitionButton.svelte
+var DefinitionButton_svelte = __webpack_require__(806);
+;// CONCATENATED MODULE: ./src/components/DefinitionButton.svelte.8.css!=!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/DefinitionButton.svelte.8.css!./src/components/DefinitionButton.svelte
 
       
       
@@ -7865,9 +7866,9 @@ class DefinitionButton extends SvelteComponent {
 
 /* harmony default export */ const src_components_DefinitionButton_svelte = (DefinitionButton);
 
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/Guess.svelte.8.css!./src/components/Guess.svelte
-var Guess_svelte = __webpack_require__(139);
-;// CONCATENATED MODULE: ./src/components/Guess.svelte.8.css!=!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/Guess.svelte.8.css!./src/components/Guess.svelte
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/Guess.svelte.6.css!./src/components/Guess.svelte
+var Guess_svelte = __webpack_require__(92);
+;// CONCATENATED MODULE: ./src/components/Guess.svelte.6.css!=!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/Guess.svelte.6.css!./src/components/Guess.svelte
 
       
       
@@ -8212,9 +8213,9 @@ const getLettersPressed = (callback) => {
 };
 /* harmony default export */ const services_getLettersPressed = (getLettersPressed);
 
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/Current.svelte.7.css!./src/components/Current.svelte
-var Current_svelte = __webpack_require__(637);
-;// CONCATENATED MODULE: ./src/components/Current.svelte.7.css!=!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/Current.svelte.7.css!./src/components/Current.svelte
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/Current.svelte.9.css!./src/components/Current.svelte
+var Current_svelte = __webpack_require__(331);
+;// CONCATENATED MODULE: ./src/components/Current.svelte.9.css!=!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/Current.svelte.9.css!./src/components/Current.svelte
 
       
       
@@ -8500,9 +8501,9 @@ class Current extends SvelteComponent {
 
 /* harmony default export */ const src_components_Current_svelte = (Current);
 
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/Guesses.svelte.5.css!./src/components/Guesses.svelte
-var Guesses_svelte = __webpack_require__(996);
-;// CONCATENATED MODULE: ./src/components/Guesses.svelte.5.css!=!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/Guesses.svelte.5.css!./src/components/Guesses.svelte
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/Guesses.svelte.2.css!./src/components/Guesses.svelte
+var Guesses_svelte = __webpack_require__(142);
+;// CONCATENATED MODULE: ./src/components/Guesses.svelte.2.css!=!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/Guesses.svelte.2.css!./src/components/Guesses.svelte
 
       
       
@@ -8793,9 +8794,9 @@ class Guesses extends SvelteComponent {
 
 /* harmony default export */ const src_components_Guesses_svelte = (Guesses);
 
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/KeyboardButton.svelte.6.css!./src/components/KeyboardButton.svelte
-var KeyboardButton_svelte = __webpack_require__(335);
-;// CONCATENATED MODULE: ./src/components/KeyboardButton.svelte.6.css!=!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/KeyboardButton.svelte.6.css!./src/components/KeyboardButton.svelte
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/KeyboardButton.svelte.7.css!./src/components/KeyboardButton.svelte
+var KeyboardButton_svelte = __webpack_require__(338);
+;// CONCATENATED MODULE: ./src/components/KeyboardButton.svelte.7.css!=!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/KeyboardButton.svelte.7.css!./src/components/KeyboardButton.svelte
 
       
       
@@ -9026,9 +9027,9 @@ class KeyboardButton extends SvelteComponent {
 
 /* harmony default export */ const src_components_KeyboardButton_svelte = (KeyboardButton);
 
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/Keyboard.svelte.2.css!./src/components/Keyboard.svelte
-var Keyboard_svelte = __webpack_require__(295);
-;// CONCATENATED MODULE: ./src/components/Keyboard.svelte.2.css!=!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/Keyboard.svelte.2.css!./src/components/Keyboard.svelte
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/Keyboard.svelte.5.css!./src/components/Keyboard.svelte
+var Keyboard_svelte = __webpack_require__(402);
+;// CONCATENATED MODULE: ./src/components/Keyboard.svelte.5.css!=!./node_modules/svelte-loader/index.js?cssPath=C:/Users/d4v3u/projects/bulls-and-cows-game/src/components/Keyboard.svelte.5.css!./src/components/Keyboard.svelte
 
       
       
